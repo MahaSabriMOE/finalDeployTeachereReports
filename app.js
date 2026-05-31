@@ -936,7 +936,7 @@ function renderTable(records) {
     // Condition: score > 85 OR score < 65
     if (!isNaN(score) && (score >= 85 || score <= 65)) {
       conditionalButtonHtml = `<button class="btn-conditional-action" data-record-id="${record.id}" data-action="conditional-action">
-                                        فتح نموذج الملاحظات
+                                نموذج التبرير
                                     </button>`;
     }
     // --- END NEW CONDITIONAL BUTTON LOGIC ---
