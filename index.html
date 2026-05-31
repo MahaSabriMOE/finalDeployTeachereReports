@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>طباعة تقرير معلم-الإدارة العامة للإشراف التربوي</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 style="text-align: center; margin-bottom: 5px">
+      طباعة تقرير معلم-الإدارة العامة للإشراف التربوي
+    </h1>
+
+    <div class="card import-card">
+      
+
+      <div class="import-content-row">
+       
+        <div class="import-col ">
+          
+      <h2>القسم الثاني : إجراءات الطباعة</h2>
+      
+      <div class="button-group">
+      <button id="btn-add-record" class="print-button hidden">
+        ➕ إضافة سجل جديد
+      </button>
+      <button id="btn-export-excel" class="print-button hidden">
+        ⬆️ تصدير إلى إكسل
+      </button>
+
+      <button id="btn-print" class="print-button">
+        📄 طباعة تقرير كامل - جميع المعلمين
+      </button>
+      
+      <button id="btn-print-summary" class="print-button">
+        🖨️ طباعة التقرير الملخص
+      </button>
+      
+      <button id="btn-print-teacher-list" class="print-button">
+       📋 طباعة قائمة ببيانات المعلمين 
+      </button>
+      </div>
+      
+
+      <br>
+      <div class="print-range-section">
+        <span>اطبع النطاق:</span>
+        
+        <label for="select-range-start">من المعلم رقم:</label>
+        
+        <select id="select-range-start">
+          <option value="">-- Select --</option>
+        </select>
+        
+        <label for="select-range-end">إلى المعلم رقم:</label>
+        <select id="select-range-end">
+          <option value="">-- Select --</option>
+        </select>
+        <button id="btn-print-range" class="print-selection-button">🖨️ طباعة التقارير المختارة</button>
+      </div>
+      
+      
+      <button id="btn-clear-db" class="danger-button">
+        عند الانتهاء
+        من الطباعة
+        اضغط هنا
+      </button>
+    
+
+
+        </div>
+        
+
+
+        <div class="import-col description-col">
+          <h2>القسم الأول : تحميل ملف الإكسل </h2>
+          <div class="import-actions">
+            
+            <input type="file" id="excel-file-input" accept=".xlsx, .xls" />
+            <button id="btn-refresh-page" class="utility-button">
+              🔄 تحميل البيانات
+            </button>
+          </div>
+          <div class="import-form-group">
+            <label for="directorate-name-input">اسم المديرية :</label>
+            <input
+              type="text"
+              id="directorate-name-input"
+              placeholder="أدخل اسم المديرية هنا"
+            />
+          
+          
+            <label for="supervisor-name2-input">اسم المشرف:</label>
+            <input
+              type="text"
+              id="supervisor-name2-input"
+              placeholder="أدخل اسم المشرف هنا"
+            />
+          
+
+          
+            <label for="academic-year-input">العام الدراسي:</label>
+            <input
+              type="text"
+              id="academic-year-input"
+              placeholder="مثال: 2024/2025"
+            />
+            </div>
+          
+        </div>
+       
+
+        <div class="import-col description-col">
+          <h2>التعلـــــيــــمـــــات</h2>
+          <p><strong>هام:</strong> يرجى استخدام ملف قالب الاكسل المخصص لبيانات و علامات المعلمين<br><br>
+            <strong>أولاً : </strong> اضغط زر "اختيار ملف" <br><br>
+            <strong>ثانياً : </strong> اضغط زر "تحميل البيانات" <br><br>
+            <strong>ثالثاً : </strong>قم بتعبئة اسم المديرية و اسم المشرف و العام الدراسي<br>
+            <br>
+            <p>إعداد: م.مها صبري</p>
+          <p>قسم التقنيات التربوية-مديرية طولكرم</p>
+
+        </div>
+
+        <div>
+          <img src="./logo.png" class="logo-pic hidden" />
+        </div>
+
+        
+      </div>
+    </div>
+
+    
+
+    <div class="card">
+      <div class="search-section">
+        <input type="text" id="search-input" placeholder="ابحث هنا..." />
+        <button id="btn-search">🔍 بحث</button>
+      </div>
+
+      <div id="level-filter-controls" class="filter-controls">
+        <button
+          class="filter-button active-filter"
+          data-level="الكل"
+          onclick="filterByLevel('الكل')"
+        >
+          عرض الكل
+        </button>
+        <button
+          class="filter-button"
+          data-level="ممتاز"
+          onclick="filterByLevel('ممتاز')"
+        >
+          ممتاز
+        </button>
+        <button
+          class="filter-button"
+          data-level="جيد جدا"
+          onclick="filterByLevel('جيد جدا')"
+        >
+          جيد جدا
+        </button>
+        <button
+          class="filter-button"
+          data-level="جيد"
+          onclick="filterByLevel('جيد')"
+        >
+          جيد
+        </button>
+        <button
+          class="filter-button"
+          data-level="متوسط"
+          onclick="filterByLevel('متوسط')"
+        >
+          متوسط
+        </button>
+
+        <button
+          class="filter-button"
+          data-level="ضعيف"
+          onclick="filterByLevel('ضعيف')"
+        >
+          ضعيف
+        </button>
+      </div>
+
+      <div id="pagination-controls" class="pagination-controls"></div>
+      <div id="data-table-container"></div>
+    </div>
+
+    <div id="print-outlet"></div>
+    <div id="summary-print-outlet" class="print-area hidden"></div>
+    <div id="print-teacher-list-outlet" class="print-area hidden"></div>
+
+    <div id="record-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+
+        <h2 id="form-title">Add/Edit Record</h2>
+        <form id="crud-form">
+          <div id="form-fields">
+            <p>Import an Excel file to generate the form fields.</p>
+          </div>
+          <input type="hidden" id="record-id" />
+          <button type="submit">حفظ السجل</button>
+          <button
+            type="button"
+            id="btn-cancel"
+            class="hidden"
+            onclick="closeModal()"
+          >
+            إلغاء
+          </button>
+        </form>
+
+        <form id="conditional-form" class="hidden">
+          <div id="conditional-form-fields"></div>
+          <button type="submit">إرسال الملاحظات</button>
+          <button type="button" onclick="closeModal()">إلغاء</button>
+        </form>
+
+        <div id="modal-details-container" class="hidden-in-modal"></div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

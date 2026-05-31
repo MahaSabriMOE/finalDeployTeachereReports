@@ -1,0 +1,950 @@
+/* --- Basic App Styling (RTL) --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    direction: rtl; /* Ensure global RTL */
+}
+
+h1, h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 5px;
+    text-align: right; /* Force title alignment to right */
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
+    padding: 20px;
+}
+
+/* --- Form Styling (RTL) --- */
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* --- Button Styling (RTL) --- */
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 700;
+    margin-left: 5px; /* Use margin-left in RTL to separate buttons */
+    margin-top: 5px; 
+}
+button:hover {
+    background-color: #2980b9;
+}
+
+.print-button {
+    background-color: #27ae60;
+    margin-right: 5px;
+     font-size: 12pt;
+}
+.print-button:hover {
+    background-color: #2ecc71;
+}
+
+
+
+.print-selection-button {
+    background-color: #27ae60;
+    display: block; /* Makes the button a block-level element */
+  width: 100%; /* Expands the button to fill the width of its parent container */
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width */
+    font-size: 12pt;
+    margin-top:10px;
+}
+.print-selection-button:hover {
+    background-color: #2ecc71;
+}
+
+
+
+
+.danger-button {
+    background-color: #e74c3c;
+     display: block; /* Makes the button a block-level element */
+  width: 100%; /* Expands the button to fill the width of its parent container */
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width */
+    font-size: 12pt;
+    margin-top:10px;
+   
+}
+
+.danger-button:hover {
+    background-color: #c0392b;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* --- Basic App Styling (RTL) --- */
+/* ... (Existing styles) ... */
+
+/* Specific styling for the utility button column to align the button */
+.button-col {
+    display: flex;
+    /* Change to column to allow all content (p tags + actions) to stack */
+    flex-direction: column; 
+    /* Align items to the right in RTL */
+    align-items: flex-end; 
+}
+
+/* NEW: Style for the action buttons/file input to be side-by-side */
+.import-actions {
+    display: block;
+    /* Reverse order for RTL: button first, then file input */
+    flex-direction: row-reverse; 
+    gap: 10px;
+    width: 100%; /* Take full width of parent col */
+    margin-top: 10px; /* Space from paragraphs above */
+    align-items: center; /* Vertically align input and button */
+}
+
+.import-actions input[type="file"] {
+    /* Allow file input to take space, but shrink for the button */
+    flex-grow: 1; 
+    min-width: 0; 
+}
+
+/* NEW: Style for the Academic Year input group */
+.import-form-group {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #ccc;
+    
+}
+.import-form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-align: right;
+}
+.import-form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: right; /* Ensure RTL alignment */
+    
+}
+/* --- Print Range Section (RTL) --- */
+.print-range-section {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+.print-range-section span {
+    font-weight: 700;
+    color: #555;
+    margin-left: 15px;
+}
+.print-range-section label {
+    font-weight: 600;
+    /* Reverse the margins for RTL: 15px on the right (start) */
+    margin: 0 15px 0 5px; 
+}
+.print-range-section select {
+    padding: 7px;
+    margin-top:5px;
+    border-radius: 4px;
+    width:120px;
+    border: 1px solid #ccc;
+}
+
+
+/* --- Pagination Controls Styling --- */
+.pagination-controls {
+    text-align: center;
+    padding: 15px 0 10px 0;
+    margin-top: 10px;
+}
+
+.pagination-controls button {
+    background-color: #607d8b; /* Blue-grey */
+    color: white;
+    padding: 8px 14px;
+    margin: 0 4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 1000;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+    background-color: #455a64;
+}
+
+.pagination-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #666;
+}
+
+.pagination-controls button.active-page {
+    background-color: #2c3e50; /* Darker blue */
+    font-weight: 700;
+}
+
+/* --- Card View Styling --- */
+#data-table-container {
+    margin-top: 20px;
+    display: grid;
+    /* Use a responsive grid (2-3 columns on wide screens, 1 on narrow) */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.data-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: right; /* Ensure RTL alignment */
+}
+
+.data-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-field {
+    display: flex; /* Use flex to align label and value */
+    justify-content: space-between; /* Space out the label and value */
+    padding: 5px 0;
+    border-bottom: 1px dotted #f0f0f0;
+}
+
+.card-field:last-of-type {
+    border-bottom: none;
+}
+
+.card-field strong {
+    font-weight: 700;
+    color: #333;
+}
+
+.card-id {
+    font-size: 1.2em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+    font-weight: 800;
+}
+
+.card-actions {
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    text-align: center;
+}
+.card-actions button {
+    padding: 5px 10px;
+     font-size: 14pt;
+    margin: 3px;
+    margin-left: 5px; /* Use margin-left for spacing */
+
+}
+.card-actions button:last-child {
+    margin-left: 0; 
+}
+
+/* --- Modal (Popup) Styling --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; 
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; 
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close-button {
+    color: #aaa;
+    float: left; /* Float left in RTL */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Control visibility of Form vs. Details inside the modal */
+#modal-details-container.hidden-in-modal,
+#crud-form.hidden-in-modal {
+    display: none !important;
+}
+
+/* Styling for the details inside the modal */
+#modal-details-container {
+    padding-top: 20px;
+}
+#modal-details-container h2 {
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.modal-field {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ddd;
+}
+.modal-field strong {
+    color: #2c3e50;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.modal-field span {
+    font-size: 1.1em;
+    color: #555;
+}
+
+
+/* --- Printing Rules for A4 (Ensure each record is on one page) --- */
+@media print {
+    
+    /* Crucial: Set the page size to A4 and reduce margins */
+    @page {
+        size: A4 portrait;
+        margin: 0.5cm; /* Minimal margin to maximize content space */
+    }
+    body {
+        padding: 0;
+        margin: 0;
+        background-color: #fff;
+        font-size: 12pt;
+    }
+
+    /* Ensure only the print-outlet content is visible */
+    body > * {
+        display: none !important;
+    }
+
+    body.printing-record #print-outlet {
+        display: block !important;
+        padding: 0;
+        margin: 0;
+    }
+    body.printing-record #print-outlet h1 {
+        display: none !important; 
+    }
+
+
+    /* --- MODE 1: Print Full Table --- (Now using card-report styling) */
+    body.printing-table h1 {
+        display: block !important;
+        text-align: center;
+        font-size: 16pt;
+        margin-top: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #333;
+    }
+
+    /* Show the print outlet */
+    body.printing-table #print-outlet {
+        display: block !important;
+    }
+
+    /* --- MODE 2 & 3: Print Record(s) Report --- */
+    /* Show the print outlet */
+    body.printing-record #print-outlet {
+        display: block !important;
+    }
+
+    /* Ensure the individual report card structure is respected */
+    .record-report-card {
+        page-break-inside: avoid; 
+        /* * FIX: Changed from 'always' to 'auto' to prevent an extra blank page 
+           * when printing a single record (which uses 'printing-record' class).
+        */
+        page-break-after: auto; 
+        text-align: right; 
+        padding: 10px; /* Small padding inside the card */
+        box-sizing: border-box;
+        height: 29.7cm; /* A4 height. This is a fallback hint. */
+        max-height: 100vh; /* Should fill the viewport/page height */
+        
+        /* Optional space-saving optimization: reduce font size slightly */
+        font-size: 0.88em; 
+    }
+
+    /* NEW LOGIC: For multi-record (range) printing, enforce page break between records */
+    body.printing-range .record-report-card {
+        page-break-after: always;
+    }
+
+    /* NEW LOGIC: Prevent page break after the last record in a range print */
+    body.printing-range .record-report-card:last-child {
+        page-break-after: auto !important;
+    }
+
+
+    /* Reset the generic grid for the report template */
+    .report-fields {
+        display: block; 
+        direction: rtl; 
+        padding-top: 5px; /* Reduced padding */
+    }
+/* Styles for the header and main info tables */
+    .report-header-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #ccc;
+        margin-bottom: 10px;
+        gap: 8px;
+    }
+
+    /* Side columns (right: دولة فلسطين / left: المدرسة) - fixed width */
+    .report-header-side {
+        flex: 0 0 200px;
+        width: 200px;
+        font-size: 0.85em;
+        line-height: 1.6;
+    }
+
+    /* School name wraps inside its fixed column */
+    .school-name-text {
+        display: inline;
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    /* Centre column: logo + title — takes remaining space */
+    .report-header-title {
+        flex: 1 1 auto;
+        text-align: center;
+        font-size: 1.05em;
+        font-weight: bold;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Title text must NEVER wrap */
+    .report-main-title {
+        white-space: nowrap;
+        font-size: 1em;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    /* Reduce font size, padding, and line height across tables */
+    .report-metadata-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+        font-size: 0.8em; 
+        border: 1px solid #333;
+    }
+    .report-metadata-table td {
+        border: 1px solid #333;
+        padding: 4px 6px; /* Reduced padding */
+        text-align: right;
+        white-space: normal; /* Allow text to wrap if necessary */
+    }
+
+    .report-metadata-table .label-cell {
+        background-color: #f7f7f7;
+        font-weight: bold;
+        width: 15%; 
+    }
+    .report-metadata-table .value-cell {
+        width: 35%; 
+    }
+
+
+    .report-metadata-table tr:not(:last-child) td {
+       border: 1px solid #333;
+    }
+    .report-metadata-table tr {
+        display: flex; /* Use flex for a single row to better control cell width */
+    }
+    .report-metadata-table .label-cell,
+    .report-metadata-table .value-cell {
+        flex: 1;
+        box-sizing: border-box;
+       
+    }
+
+    .report-metadata-table tr:nth-child(1) td:nth-child(2),
+    .report-metadata-table tr:nth-child(1) td:nth-child(4) {
+        border: 1px solid #333;
+    }
+
+    /* Criteria/Indicators Table */
+    .report-criteria-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        font-size: 0.85em; /* Critical size reduction for the large table */
+        table-layout: fixed; 
+        direction: rtl;
+        border: 2px solid #333;
+    }
+    .report-criteria-table th,
+    .report-criteria-table td {
+        border: 1px solid #333;
+        padding: 4px; /* Reduced padding */
+        text-align: center;
+        vertical-align: middle; /* Center vertically for better look */
+    }
+    .report-criteria-table th {
+        background-color: #e0e0e0;
+        font-weight: bold;
+        font-size: 1em; 
+    }
+
+    /* Column Widths based on PDF visual structure */
+    .report-criteria-table .col-4-score { width: 6%; } /* المعدل */
+    .report-criteria-table .col-3-max-score { width: 6%; } /* العلامة القصوى */
+    .report-criteria-table .col-2-indicator { width: 50%; text-align: right; } /* مؤشرات الاداء */
+    .report-criteria-table .col-1-area { width: 10%; font-weight: bold; } /* المجال */
+
+    /* Footer styles */
+    .report-footer-section {
+        margin-top: 15px; /* Reduced margin */
+        border-top: 2px solid #333;
+        padding-top: 10px;
+        font-size: 0.9em; 
+        text-align: right;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px; /* Reduced gap */
+    }
+    .report-footer-item {
+        margin-bottom: 5px;
+    }
+    .report-footer-item span {
+        font-weight: bold;
+        display: block;
+        padding-bottom: 3px;
+    }
+    .report-footer-signature {
+        text-align: left; 
+        padding-top: 5px;
+        font-size: 0.9em;
+        float:left;
+    }
+
+    /* Style the main report title */
+    body.printing-record #print-outlet h1 {
+        display: none !important; /* Hide the generic H1 */
+    }
+    
+    /* Ensure only the report output is visible */
+    body > * {
+        display: none !important;
+    }
+    body.printing-record #print-outlet {
+        display: block !important;
+    }
+
+}
+
+/* --- Alignment Utility Class for RTL --- */
+/* Pushes the content to the far left in an RTL container */
+.align-left {
+    margin-right: auto !important; /* The 'right' margin in RTL pushes it to the left */
+    margin-left: 0 !important;
+}
+
+
+/* --- Utility Button Styling --- */
+.utility-button {
+    background-color: #f39c12; /* A nice orange/amber color */
+    font-size: 12pt;
+}
+.utility-button:hover {
+    background-color: #e67e22; /* A darker orange on hover */
+}
+
+/* --- Search Section Styling (RTL) --- */
+.search-section {
+    padding: 15px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    /*border-bottom: 1px solid #eee;*/
+    margin-bottom: 20px;
+}
+
+#search-input {
+    flex-grow: 1; /* Allows the input to take up most of the space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* Explicitly align text to the right for RTL */
+    text-align: right; 
+}
+
+/* --- Import Card Layout (3 Columns) --- */
+.import-content-row {
+    display:flex ;
+    /* Use row-reverse for RTL (Column 3 on the right, Column 1 on the left) */
+    flex-direction: row-reverse; 
+    gap: 20px;
+    align-items: flex-start; /* Align items to the top */
+    padding-top: 15px;
+}
+
+.import-col {
+    flex: 1; /* Makes all three columns take equal width */
+    min-width: 0;
+    
+}
+
+.import-col2 {
+    flex: 2; /* Makes all three columns take equal width */
+    min-width: 0;
+    
+}
+
+.button-group {
+  display: flex;
+  width: 100%; /* Ensure the group takes up the full width you need */
+  gap: 10px;  /* Optional: Adds space between the buttons */
+}
+
+/* 2. Distribute the width equally */
+.button-group button {
+  flex-grow: 1; /* This is the key: tells each button to take up an equal share */
+  padding: 10px;
+  text-align: center;
+}
+
+
+
+.import-col p {
+    margin-top: 0;
+    font-size: 1em;
+    color: #555;
+    line-height: 1.4;
+}
+
+
+
+/* Specific styling for the utility button column to align the button */
+.button-col {
+    display: flex;
+    /* Put the button on its own line */
+    flex-direction: column; 
+    /* Align the button to the left (in RTL) or where it looks best */
+    align-items: flex-start; 
+}
+/* Ensure the file input looks good in its column */
+.input-col input[type="file"] {
+    /* Override the 100% width default for a cleaner look in a narrow column */
+   width: auto;
+    padding: 10px 0; /* Add padding for vertical spacing */
+    border: none;
+}
+.logo-pic {
+    width: 50px;
+    height: auto ;
+    display: block;
+    justify-self: center;
+   /* margin: 0 auto 10px auto;*/
+}
+
+/* --- Button Styling (RTL) --- */
+/* ... (Keep existing button styles) ... */
+
+/* NEW: Style for the conditional action button */
+.btn-conditional-action {
+    background-color: #f39c12; /* A distinct orange color for special action */
+}
+.btn-conditional-action:hover {
+    background-color: #e67e22;
+}
+
+
+/* General reset for consistency, important for Arabic text */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.report-section-container {
+    width: 600px; /* Adjust as needed */
+    margin: 20px auto; /* Center the whole section */
+    border: 1px solid #000;
+    font-family: Arial, sans-serif; /* Use a clean font */
+    direction: rtl; /* Important for Arabic layout */
+}
+
+/* Header Section Styling */
+.report-header {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+    background-color: #6c6c70; /* Light background for the header row */
+}
+
+/* Content Area Styling (where the details are) */
+.report-content {
+    display: flex; /* Use flexbox to position fields side-by-side */
+    justify-content: space-between; /* Space out the two groups */
+    padding: 20px 30px; /* Inner padding */
+}
+
+/* Styling for the Name/Signature group and Job/Date group */
+.details-group {
+    display: flex;
+    flex-direction: column; /* Stack the items vertically */
+    flex: 1; /* Allow groups to take up equal space */
+}
+
+.details-group p {
+    margin-bottom: 15px;
+    font-size: 1em;
+    white-space: nowrap; /* Prevent breaking key fields */
+}
+
+/* Right-aligned group (Name and Signature) */
+.right-aligned {
+    text-align: right; /* Text aligns to the right side of its container */
+}
+
+/* Left-aligned group (Job and Date) - but still positioned on the left in an RTL context */
+.left-aligned {
+    text-align: left; /* Text aligns to the left side of its container */
+    margin-right: 50px; /* Add some space between the groups */
+}
+
+/* Style for the underline/space */
+.details-group span {
+    text-decoration: underline;
+}
+
+/* --- Summary Report Print Styles --- */
+
+/* Base container for the summary report */
+.summary-report-page {
+    max-width: 900px; /* Limit width */
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ccc; /* Optional border */
+    padding: 30px;
+    direction: rtl;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Report Header */
+.summary-report-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.summary-report-header h3 {
+    font-size: 1.8em;
+    color: #333;
+    border-bottom: 3px double #000;
+    padding-bottom: 10px;
+    margin-top: 15px;
+}
+.summary-report-header p {
+    margin: 5px 0;
+    text-align: right;
+}
+
+/* Summary Table Styling */
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.summary-table th, .summary-table td {
+    border: 1px solid #000;
+    padding: 15px 10px;
+    text-align: right;
+    font-size: 1.1em;
+}
+
+.summary-table th {
+    background-color: #e6e6e6;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Total Row Emphasis */
+.summary-table .total-row td {
+    background-color: #d1e7dd; /* Light green background */
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Report Footer */
+.summary-report-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 80px;
+    padding-top: 20px;
+    border-top: 1px dashed #999;
+}
+.summary-report-footer p {
+    flex: 1;
+    margin: 0 10px;
+    white-space: nowrap;
+    text-align: right;
+}
+
+/* Utility Class */
+.hidden {
+    display: none !important;
+}
+
+/* Print Media Query: Ensures only the report prints */
+@media print {
+    /* Hide the main application UI elements when printing */
+    body > *:not(.summary-report-page) {
+        display: none !important;
+    }
+    .summary-report-page {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+    }
+}
+
+/* --- New Controls Layout --- */
+.controls-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px; /* Space between the two containers */
+}
+
+.search-container, .filter-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; 
+    /* Ensures filter button and input are together */
+}
+
+.search-container input, .filter-container input {
+    flex-grow: 1;
+    max-width: 300px; /* Limit input size */
+    margin-left: 10px; /* Space between input and button */
+}
+
+.filter-container button {
+    white-space: nowrap; /* Prevents button text from wrapping */
+}
+
+/* --- New Controls Styling --- */
+.filter-controls {
+    display: flex;
+    gap: 10px;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+    justify-content: center; /* Align buttons to the right (RTL standard) */
+}
+
+.filter-button {
+    background-color: #ecf0f1;
+    color: #34495e;
+    border: 1px solid #bdc3c7;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+    font-weight: 600;
+}
+
+.filter-button:hover {
+    background-color: #d0d3d4;
+}
+
+/* Style for the currently active/selected filter button */
+.filter-button.active-filter {
+    background-color: #3498db; /* A distinct blue color */
+    color: white;
+    border-color: #2980b9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-button.active-filter:hover {
+    background-color: #2980b9; /* Slightly darker hover for active state */
+}
+
+
+
